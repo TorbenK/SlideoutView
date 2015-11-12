@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:slider="clr-namespace:SlideoutView.FormsPlugin.Abstractions;assembly=SlideoutView.FormsPlugin.Abstractions"
+             x:Class="TestApp.SamplePageListView">
+  <Grid>
+    <StackLayout
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand">
+
+      <Button
+        Text="Toggle it!"
+        Command="{Binding ToggleSlidoutViewCommand}" />
+
+    </StackLayout>
+
+    <slider:SlideoutControl
+       IsPresented="{Binding IsPresented}"
+       SlideOutDirection="Left"
+       FixedSize="200">
+      <slider:SlideoutControl.Content>
+        <ListView 
+          ItemsSource="{Binding ListViewItems}"
+          BackgroundColor="White">
+
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <TextCell Text="{Binding}" />
+            </DataTemplate>
+          </ListView.ItemTemplate>
+          
+        </ListView>
+      </slider:SlideoutControl.Content>
+    </slider:SlideoutControl>
+  </Grid>
+</ContentPage>

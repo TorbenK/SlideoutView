@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:slider="clr-namespace:SlideoutView.FormsPlugin.Abstractions;assembly=SlideoutView.FormsPlugin.Abstractions"
+             x:Class="TestApp.SamplePageTableView">
+  <Grid>
+    <StackLayout
+      VerticalOptions="FillAndExpand"
+      HorizontalOptions="FillAndExpand">
+
+      <Button
+        Text="Toggle it!"
+        Command="{Binding ToggleSlidoutViewCommand}" />
+
+    </StackLayout>
+
+    <slider:SlideoutControl
+       IsPresented="{Binding IsPresented}"
+       SlideOutDirection="Right"
+       SizeScale="0.8">
+      <slider:SlideoutControl.Content>
+        <TableView 
+          BackgroundColor="White">
+          <TableView.Root>
+            <TableSection Title="Login">
+              <EntryCell Placeholder="Username" />
+              <EntryCell Placeholder="Password" />
+              <SwitchCell Text="Remember me" />
+            </TableSection>
+          </TableView.Root>
+        </TableView>
+      </slider:SlideoutControl.Content>
+    </slider:SlideoutControl>
+  </Grid>
+</ContentPage>
